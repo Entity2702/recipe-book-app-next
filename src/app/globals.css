@@ -25,5 +25,8 @@
  --radius-box: 10px;
  --radius-card: 20px;
 
- --breakpoint-figma: 1440px;
+ --breakpoint-figma-0: 980px;
+ --breakpoint-figma-1: 1400px;
+ --breakpoint-figma-2: 1840px;
+ --breakpoint-figma-3: 2280px;
 }

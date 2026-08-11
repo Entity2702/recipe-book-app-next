@@ -6,15 +6,14 @@ export const recipesApi = createApi({
  endpoints: (builder) => ({
 
   getRecipes: builder.query({
-   query: ({limit = 6, skip = 0}) => `recipes?limit=${limit}&skip=${skip}`,
+   query: ({search = '', limit = 6, skip = 0}) => {
+    if(search) return `recipes/search?q=${search}&limit=${limit}&skip=${skip}`;
+    return `recipes?limit=${limit}&skip=${skip}`;
+   },
   }),
 
   getRecipesById: builder.query({
    query: ({id}) => `recipes/${id}`,
-  }),
-
-  searchRecipes: builder.query({
-   query: ({search, limit = 6}) => `recipes/search?q=${search}&limit=${limit}`,
   }),
 
  })
@@ -23,5 +22,4 @@ export const recipesApi = createApi({
 export const{
  useGetRecipesQuery,
  useGetRecipesByIdQuery,
- useSearchRecipesQuery
 } = recipesApi
