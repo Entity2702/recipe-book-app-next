@@ -1,0 +1,8 @@
+export {default as bgimage} from "./bgimage.png"
+export {default as cookTime} from "./cookTime.png"
+export {default as cuisineImg} from "./cuisine.png"
+export {default as level} from "./level.svg"
+export {default as logo} from "./logo.svg"
+export {default as logoBlack} from "./logoBlack.svg"
+export {default as loupe} from "./loupe.png"
+export {default as servings} from "./servings.svg"
