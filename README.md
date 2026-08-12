@@ -1,5 +1,7 @@
 This is Recipe Book App.
 
+Deployed app: https://recipe-book-app-next-pi.vercel.app
+
 Created by Entity_2702.
 
 Tech stack:
