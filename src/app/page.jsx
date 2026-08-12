@@ -15,8 +15,29 @@ export default function AllRecipes(){
  const [selectedDifficulty, setSelectedDifficulty] = useState('All');
  const [recipes, setRecipes] = useState([]);
 
+ useEffect(() => {
+  
+  const handleResize = () => {
+   const width = window.innerWidth;
+   if(width >= 2280) setLimit(10);
+   else if(width >= 1840) setLimit(8);
+   else if(width >= 1400) setLimit(6);
+   else setLimit(4);
+  }
+
+  handleResize();
+
+  window.addEventListener('resize', handleResize);
+
+  return () => window.removeEventListener('resize', handleResize);
+ }, []);
+
+ useEffect(() => {
+  setSkip(0);
+  setRecipes([]);
+ }, [limit]);
+
  const handleLoadMore = () => {
-  if(recipes.total <= limit) alert("All recipes are shown!");
   setSkip((prevSkip) => prevSkip + limit);
  };
  
@@ -80,7 +101,7 @@ export default function AllRecipes(){
   </main>
 
   <footer className="flex justify-center my-12.5 figma-0:my-25">
-   <LoadMore onClick={handleLoadMore}/>
+   { newRecipesData?.total <= recipes.length ? <p className="font-just-me-again-down-here text-[32px]">All recipes are shown.</p> : <LoadMore onClick={handleLoadMore}/>}
   </footer>
   </>
  )
